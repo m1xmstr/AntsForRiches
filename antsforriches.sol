@@ -1,18 +1,21 @@
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.0;
+
+// MIT License
+// SPDX-License-Identifier: MIT
 
 contract AntsForRiches {
 
   // Name: AntsForRiches
-  string public name = "AntsForRiches";
+  string public name;
 
   // Website: www.antsforriches.com
-  comment("www.antsforriches.com");
+  // GitHub: https://github.com/m1xmstr/AntsForRiches
 
   // Total Supply: 250000000
-  uint256 public totalSupply = 250000000;
+  uint256 public totalSupply;
 
   // Symbol name is now: A4R
-  string public symbol = "A4R";
+  string public symbol;
 
   // Decimals: 18
   uint8 public decimals = 18;
@@ -31,11 +34,11 @@ contract AntsForRiches {
   event Approval(address indexed owner, address indexed spender, uint256 amount);
 
   // Constructor
+  // This function creates the token and initializes the initial supply.
   constructor(string memory n, string memory s) {
     name = n;
     symbol = s;
     totalSupply = 250000000 * 10**uint256(decimals);
-    owner = msg.sender;
     balances[owner] = totalSupply;
     emit Transfer(address(0), owner, totalSupply);
   }
@@ -92,4 +95,5 @@ contract AntsForRiches {
     require(msg.sender == owner);
     _;
   }
+
 }
