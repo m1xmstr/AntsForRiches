@@ -6,10 +6,12 @@ pragma solidity ^0.8.0;
 contract AntsForRiches {
   
   string public name = "AntsForRiches"; // Name: AntsForRiches
-  string public symbol = "A4R"; // Symbol name is now: A4R
+  string public symbol = "A4Riches"; // Symbol name is now: A4Riches
 
   // Website: www.antsforriches.com
   // GitHub: https://github.com/m1xmstr/AntsForRiches
+  // Twitter: https://twitter.com/AntsForRiches
+  // Telegram: https://t.me/+kQMuwnGC67BiOTRh
 
   uint256 public totalSupply; // Total Supply: 250000000
   uint8 public decimals = 18; // Decimals: 18
@@ -67,6 +69,10 @@ contract AntsForRiches {
     balances[from] -= amount;
     emit Transfer(from, to, amount);
     return true;
+  }
+
+  function balanceOf(address account) public view returns (uint256) {
+    return balances[account];
   }
 
   modifier onlyOwner() {
